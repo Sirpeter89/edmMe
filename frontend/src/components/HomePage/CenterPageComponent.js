@@ -1,9 +1,5 @@
-import './CenterPageComponent.css';
-
-export default function CenterPageComponent({imgUrl}){
+export default function CenterPageComponent(props){
     return(
-        <div className='block'>
-            <img src={imgUrl} className='imgSize'/>
-        </div>
+            <img className='imgSize' src={props.imgUrl} style={{height: props.height, width:props.width}}/>
     )
 }
