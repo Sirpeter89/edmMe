@@ -1,0 +1,7 @@
+.centerPageContainer{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    height: auto;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}

@@ -16,8 +16,12 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-          <NavLink to="/login" className='loginButton' style={{textDecoration: 'none'}}>Log In</NavLink>
-          <NavLink to="/signup" className='signupButton' style={{textDecoration: 'none'}}>Sign Up</NavLink>
+        <div className='loginButton'>
+          <NavLink to="/login" style={{textDecoration: 'none'}}>Log In</NavLink>
+        </div>
+        <div className='signupButton' >
+          <NavLink to="/signup" style={{textDecoration: 'none'}}>Sign Up</NavLink>
+        </div>
       </>
     );
   }
