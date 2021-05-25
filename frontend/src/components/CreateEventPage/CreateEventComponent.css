@@ -1,0 +1,32 @@
+#root{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.background{
+    /* position: fixed; */
+    /* margin: 0;
+    top: 0;
+    left: 0; */
+    /* width: 100%; */
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    /* height: 100%; */
+    background-image: url('https://images.pexels.com/photos/3696395/pexels-photo-3696395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.eventFormContainer{
+    width:30vw;
+    height:50vh;
+    margin-left: 35vw;
+    margin-top: 10vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:rgb(0, 0, 0);
+}
