@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 80% 10% 10%;
     height: 50px;
-    z-index: 1;
     overflow: auto;
 }
 

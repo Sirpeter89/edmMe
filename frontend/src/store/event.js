@@ -9,7 +9,7 @@ const setEvent = (event) => {
         };
     };
 
-export const createEvent = (event)=> async(dispatch) =>{
+export const createEvent = (event)=> async() =>{
     const { name, eventImg, date, description, userId } = event;
     const response = await csrfFetch("/api/event", {
     method: "POST",
@@ -22,18 +22,26 @@ export const createEvent = (event)=> async(dispatch) =>{
         }),
     });
     const data = await response.json();
-    dispatch(setEvent(data.event));
     return response;
 };
 
-const initialState = {event: null};
+export const getEvents = () => async (dispatch) => {
+    const res = await fetch('/api/event');
+    const eventList = await res.json();
+    dispatch(setEvent(eventList.events));
+    return res;
+}
+
+const initialState = {};
 
 const eventReducer = (state = initialState, action) => {
     let newState;
     switch(action.type){
         case SET_EVENT:
             newState = Object.assign({}, state);
-            newState.event = action.payload;
+            action.payload.forEach((event)=>{
+                newState[event.id] = event
+            })
             return newState;
         default:
             return state;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as eventActions from '../../store/event';
 import './CreateEventComponent.css'
+import { useHistory } from "react-router-dom";
 
 export default function CreateEventComponent(){
     const [name, setEventName] = useState('');
@@ -13,8 +14,11 @@ export default function CreateEventComponent(){
 
     const dispatch = useDispatch();
 
+    let history = useHistory();
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        history.push('/myEvents');
         return dispatch(eventActions.createEvent({ name, eventImg, date, description, userId }))
     }
 
@@ -89,7 +93,7 @@ export default function CreateEventComponent(){
                         </div>
 
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Add tickets</button>
                 </form>
             </div>
         </div>

@@ -8,6 +8,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from './components/HomePage/index';
 import CreateEventComponent from './components/CreateEventPage/CreateEventComponent'
+import AddTicketsComponent from './components/AddTicketsPage/AddTicketsComponent'
+import MyEventsComponent from './components/MyEventsPage/MyEventsComponent'
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,9 @@ function App() {
           </Route>
           <Route path="/createEvent">
             <CreateEventComponent />
+          </Route>
+          <Route path='/myEvents'>
+            <MyEventsComponent />
           </Route>
         </Switch>
       )}
