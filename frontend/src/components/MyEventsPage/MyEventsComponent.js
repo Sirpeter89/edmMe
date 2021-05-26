@@ -8,10 +8,9 @@ export default function MyEventsComponent(){
 
     const dispatch = useDispatch();
     const events = useSelector((state)=>Object.values(state.event))
-    console.log("Events is", events);
 
-    useEffect(()=>{
-        dispatch(getEvents());
+    useEffect(async()=>{
+        await dispatch(getEvents());
     },[dispatch])
 
     return(
