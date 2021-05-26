@@ -10,6 +10,7 @@ import HomePage from './components/HomePage/index';
 import CreateEventComponent from './components/CreateEventPage/CreateEventComponent'
 import AddTicketsComponent from './components/AddTicketsPage/AddTicketsComponent'
 import MyEventsComponent from './components/MyEventsPage/MyEventsComponent'
+import EventPageComponent from './components/EventPageComponent/EventPageComponent'
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path='/myEvents'>
             <MyEventsComponent />
+          </Route>
+          <Route path='/event/:id'>
+            <EventPageComponent />
           </Route>
         </Switch>
       )}

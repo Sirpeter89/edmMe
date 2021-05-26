@@ -24,6 +24,21 @@ router.get(
     }),
 );
 
+router.get(
+    '/:id(\\d+)',
+    asyncHandler(async (req, res) => {
+        const eventId = req.params.id;
+        const event = await Event.findOne({
+            where:{
+                id: eventId
+            },
+        })
+        return res.json({
+            event,
+        })
+    }),
+);
+
 router.post(
     '/',
     asyncHandler(async (req, res) => {
