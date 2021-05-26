@@ -1,11 +1,34 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router';
+import { csrfFetch } from '../../store/csrf';
+
 export default function AddTicketsComponent(){
     const [price, setPrice] = useState(0);
     const [type, setType] = useState('');
-    const [image, setImage] = useState('');
+    const [ticketImg, setImage] = useState('');
+    const {id} = useParams();
+
+    const postEvent = async (event) =>{
+        const {price, type, ticketImg} = event;
+        const sold = false;
+        const eventId = id;
+        const res = await csrfFetch(`/api/addTickets/${eventId}`,{
+            method: "POST",
+            body: JSON.stringify({
+                price,
+                type,
+                ticketImg,
+                sold,
+                eventId,
+            }),
+        });
+        const loadedEvent = await res.json();
+        return res;
+    }
 
     const handleSubmit = (e)=>{
         e.preventDefault();
+        postEvent({price, type, ticketImg})
     }
 
     return(
@@ -51,7 +74,7 @@ export default function AddTicketsComponent(){
             <div>
                 <input
                     type='text'
-                    value={image}
+                    value={ticketImg}
                     onChange={(e)=>setImage(e.target.value)}
                     placeholder='upload ticket here'
                     required
