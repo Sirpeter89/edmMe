@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import './EventPageComponent.css'
+import { useHistory } from "react-router-dom";
 
 export default function EventPageComponent(){
     const [event, setEvent] = useState('');
     const {id} = useParams();
-
     useEffect( ()=>{
         getSingleEvent(id);
     },[])
@@ -34,6 +34,12 @@ export default function EventPageComponent(){
     const month = monthNames[dateTime.getMonth()];
     const year = dateTime.getFullYear();
 
+    const history = useHistory();
+
+    const handleClick = ()=>{
+        history.push(`/addTickets/${event.id}`)
+    }
+
     return (
         <>
             <div className='backgroundImage'>
@@ -46,7 +52,7 @@ export default function EventPageComponent(){
                         {event.description}
                 </div>
                 <p className='addTickets'>Add Tickets To This Event:</p>
-                <button className='toAddTickets'>&#x2192;</button>
+                <button className='toAddTickets' onClick={handleClick}>&#x2192;</button>
             </div>
         </>
     );

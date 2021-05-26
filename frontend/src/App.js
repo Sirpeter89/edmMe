@@ -42,6 +42,9 @@ function App() {
           <Route path='/event/:id'>
             <EventPageComponent />
           </Route>
+          <Route path='/addTickets/:id'>
+            <AddTicketsComponent />
+          </Route>
         </Switch>
       )}
     </>
