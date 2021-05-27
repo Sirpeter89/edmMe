@@ -23,4 +23,19 @@ router.get(
     }),
 );
 
+router.patch(
+    '/:id(\\d+)',
+    restoreUser,
+    asyncHandler(async (req, res) => {
+        const ticketId = req.params.id;
+        const updatedticket = await Ticket.findByPk(ticketId)
+        updatedticket.update({
+            sold: true,
+        })
+        return res.json(
+            updatedticket,
+        )
+    }),
+);
+
 module.exports = router;
