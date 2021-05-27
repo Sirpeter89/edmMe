@@ -39,6 +39,16 @@ router.get(
     }),
 );
 
+router.get(
+    '/all',
+    asyncHandler(async (req, res) => {
+        const events = await Event.findAll();
+        return res.json({
+            events,
+        })
+    }),
+)
+
 router.post(
     '/',
     asyncHandler(async (req, res) => {

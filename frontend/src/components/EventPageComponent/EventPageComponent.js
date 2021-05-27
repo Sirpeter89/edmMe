@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import './EventPageComponent.css'
 import { useHistory } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 export default function EventPageComponent(){
     const [event, setEvent] = useState('');
@@ -40,6 +41,33 @@ export default function EventPageComponent(){
         history.push(`/addTickets/${event.id}`)
     }
 
+    const purchaseClick = () =>{
+        history.push(`/tickets/${event.id}`)
+    }
+
+    const sessionUser = useSelector(state => state.session.user);
+    let ticketButton;
+    if(sessionUser === undefined){
+        ticketButton = (
+            <p className='addTickets'>Please Log In To Purchase Tickets</p>
+        )
+    }
+    else if(sessionUser.id !== event.userId){
+        ticketButton = (
+            <>
+                <p className='addTickets'>Purchase Tickets Here:</p>
+                <button className='toAddTickets' onClick={purchaseClick}>&#x2192;</button>
+            </>
+        )
+    } else {
+        ticketButton = (
+            <>
+                <p className='addTickets'>Add Tickets To This Event:</p>
+                <button className='toAddTickets' onClick={handleClick}>&#x2192;</button>
+            </>
+        )
+    }
+
     return (
         <>
             <div className='backgroundImage'>
@@ -51,8 +79,7 @@ export default function EventPageComponent(){
                 <div className='detailsBox'>
                         {event.description}
                 </div>
-                <p className='addTickets'>Add Tickets To This Event:</p>
-                <button className='toAddTickets' onClick={handleClick}>&#x2192;</button>
+                {ticketButton}
             </div>
         </>
     );

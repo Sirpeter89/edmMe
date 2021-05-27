@@ -32,6 +32,14 @@ export const getEvents = () => async (dispatch) => {
     return res;
 }
 
+export const getAllEvents = () => async (dispatch) => {
+    const res = await fetch('/api/event/all');
+    const eventsList = await res.json();
+    console.log("EVENTS LSIT IS ", eventsList)
+    dispatch(setEvent(eventsList.events));
+    return res;
+}
+
 const initialState = {};
 
 const eventReducer = (state = initialState, action) => {

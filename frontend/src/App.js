@@ -11,6 +11,8 @@ import CreateEventComponent from './components/CreateEventPage/CreateEventCompon
 import AddTicketsComponent from './components/AddTicketsPage/AddTicketsComponent'
 import MyEventsComponent from './components/MyEventsPage/MyEventsComponent'
 import EventPageComponent from './components/EventPageComponent/EventPageComponent'
+import AllEventsComponent from './components/AllEventsComponent/AllEventsComponent'
+import PurchaseTicketsComponent from './components/PurchaseTicketsPage/PurchaseTicketsComponent'
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +46,12 @@ function App() {
           </Route>
           <Route path='/addTickets/:id'>
             <AddTicketsComponent />
+          </Route>
+          <Route path='/allEvents'>
+            <AllEventsComponent />
+          </Route>
+          <Route path='/tickets/:id'>
+            <PurchaseTicketsComponent />
           </Route>
         </Switch>
       )}
