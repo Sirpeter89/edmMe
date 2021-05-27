@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react'
 import './ticketComponent.css'
 import { csrfFetch } from '../../store/csrf';
+import { useSelector } from 'react-redux';
 
 export default function TicketComponent({ticket}){
     const [sold, setSold] = useState(false)
-    const [status, setStatus] = useState('Purchase')
+    let stat = 'Purchase'
+    if(ticket.sold){
+        stat = 'Sold'
+    }
+    const [status, setStatus] = useState(stat)
+
+    const sessionUser = useSelector(state => state.session.user);
 
     const ticketUpdate = async () =>{
         const res = await csrfFetch(`/api/tickets/${ticket.id}`,{
@@ -14,17 +21,24 @@ export default function TicketComponent({ticket}){
         setSold(updatedticket.sold);
     }
 
+    const buyTicket = async() =>{
+        const res = await csrfFetch(`/api/buyTickets/${ticket.id}`,{
+            method: "POST",
+            body: JSON.stringify({
+                userId: sessionUser.id,
+            }),
+        });
+    }
+
     useEffect(()=>{
         if(sold){
         setStatus('Sold')
         }
     },[sold])
 
-    console.log("SOLD ISS", sold)
-
     const handleClick = async (e) => {
-        console.log("THE ID ISS", ticket.id)
         await ticketUpdate();
+        await buyTicket();
     }
 
     return (
