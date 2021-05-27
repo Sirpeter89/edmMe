@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import './PurchaseTicketsComponent.css'
+import TicketComponent from './ticketComponent'
 
 export default function PurchaseTicketsComponent(){
     const [tickets, setTickets] = useState([]);
@@ -18,10 +20,10 @@ export default function PurchaseTicketsComponent(){
     },[])
 
     return (
-        <>
-        {tickets.map((event)=>
-            <div key={event.id}>{event.type}</div>
-            )}
-        </>
+        <div className='allTicketsContainer'> Available Tickets:
+                {tickets.map((ticket)=>
+                    <TicketComponent key={ticket.id} ticket={ticket} ></TicketComponent>
+                )}
+        </div>
     )
 }

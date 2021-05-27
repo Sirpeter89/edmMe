@@ -1,0 +1,46 @@
+.ticketHolder{
+    background-image: url('https://images.pexels.com/photos/1111319/pexels-photo-1111319.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    height: 350px;
+    width: 250px;
+    background-size: cover;
+    transform: rotate(90deg);
+    border-radius: 25px;
+    box-shadow: 10px 8px 20px white;
+}
+
+.quantity{
+    position: relative;
+    margin-right: 50px;
+    transform: rotate(-90deg);
+    margin-left: 80px;
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: bolder;
+    color: black;
+}
+
+.type{
+    margin-right: 60px;
+    transform: rotate(-90deg);
+    margin-left: 60px;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+}
+
+.price{
+    margin-top: 80px;
+    transform: rotate(-90deg);
+    margin-left: 60px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: black
+}
+
+.buyButton{
+    transform: rotate(-90deg);
+    margin-left: -10px;
+    font-size: 18px;
+    font-weight: bolder;
+}
