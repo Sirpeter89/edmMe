@@ -6,6 +6,15 @@
     border-bottom: 1px solid black;
 }
 
+.myEvents{
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+    font-size: 15px;
+    color: purple;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .userButtons{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;

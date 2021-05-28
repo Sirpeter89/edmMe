@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/index.js
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
@@ -8,13 +8,20 @@ import './Navigation.css';
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
+  const history = useHistory();
+
+  const handleClick = ()=> {
+    history.push('/myEvents');
+    history.go(0);
+  }
+
   let sessionLinks;
   let navClass = 'navButtonContainer'
   if (sessionUser) {
     sessionLinks = (
       <>
         <div className='userButtons'>
-            <NavLink to="/myEvents" style={{textDecoration: 'none'}}>My Events</NavLink>
+            <button className='myEvents' onClick={handleClick} style={{textDecoration: 'none'}}>My Events</button>
         </div>
         <div className='userButtons'>
             <NavLink to="/myTickets" style={{textDecoration: 'none'}}>My Tickets</NavLink>
