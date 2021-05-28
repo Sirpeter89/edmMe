@@ -13,6 +13,7 @@ import MyEventsComponent from './components/MyEventsPage/MyEventsComponent'
 import EventPageComponent from './components/EventPageComponent/EventPageComponent'
 import AllEventsComponent from './components/AllEventsComponent/AllEventsComponent'
 import PurchaseTicketsComponent from './components/PurchaseTicketsPage/PurchaseTicketsComponent'
+import MyTicketsPage from './components/MyTicketsPage/MyTicketsPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route path='/tickets/:id'>
             <PurchaseTicketsComponent />
+          </Route>
+          <Route path='/myTickets'>
+            <MyTicketsPage />
           </Route>
         </Switch>
       )}

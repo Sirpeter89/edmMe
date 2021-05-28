@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import './ticketComponent.css'
 import { csrfFetch } from '../../store/csrf';
 import { useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 
 export default function TicketComponent({ticket}){
+    const history = useHistory();
     const [sold, setSold] = useState(false)
     let stat = 'Purchase'
     if(ticket.sold){
@@ -39,6 +41,7 @@ export default function TicketComponent({ticket}){
     const handleClick = async (e) => {
         await ticketUpdate();
         await buyTicket();
+        history.push('/myTickets')
     }
 
     return (

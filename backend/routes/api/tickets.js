@@ -8,8 +8,22 @@ const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const router = express.Router();
 
 router.get(
+    '/one/:id(\\d+)',
+    asyncHandler(async (req, res) => {
+        const ticketId = req.params.id;
+        const ticketReturn = await Ticket.findOne({
+            where: {
+                id: ticketId,
+            },
+        })
+        return res.json(
+            ticketReturn,
+        )
+    }),
+)
+
+router.get(
     '/:id(\\d+)',
-    restoreUser,
     asyncHandler(async (req, res) => {
         const eventId = req.params.id;
         const tickets = await Ticket.findAll({
@@ -25,7 +39,6 @@ router.get(
 
 router.patch(
     '/:id(\\d+)',
-    restoreUser,
     asyncHandler(async (req, res) => {
         const ticketId = req.params.id;
         const updatedticket = await Ticket.findByPk(ticketId)
