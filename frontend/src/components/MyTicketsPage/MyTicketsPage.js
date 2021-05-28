@@ -3,9 +3,7 @@ import TicketHolderComponent from './TicketHolderComponent'
 import './MyTicketsPage.css'
 
 export default function MyTicketsComponent(){
-    const [ticketList, setTicketList] = useState([]);
     const [actualTicketList, setActualTicketList] = useState([]);
-    const [done, setDone] = useState(false);
 
     useEffect(async ()=>{
         let newTicketList = [];

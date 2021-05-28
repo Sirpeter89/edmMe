@@ -20,3 +20,13 @@
     text-align: center;
     margin-top: 15px;
 }
+
+.bookmarkButton{
+    position: absolute;
+    margin-left:285px;
+    font-size: 30px;
+    background-color: rgba(253, 247, 253, 0);
+    border: none;
+    color: rgb(233, 229, 8);
+    z-index: 100;
+}

@@ -3,9 +3,10 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const eventRouter = require('./event.js');
-const ticketRouter = require('./addTickets.js')
-const purchaseTicketRouter = require('./tickets.js')
-const addToBoughtTicketsRouter = require('./purchaseTicket')
+const ticketRouter = require('./addTickets.js');
+const purchaseTicketRouter = require('./tickets.js');
+const addToBoughtTicketsRouter = require('./purchaseTicket');
+const bookmarkRouter = require('./bookmark.js')
 
 // GET /api/set-token-cookie
 const asyncHandler = require('express-async-handler');
@@ -51,5 +52,7 @@ router.use('/addTickets', ticketRouter);
 router.use('/tickets', purchaseTicketRouter);
 
 router.use('/buyTickets', addToBoughtTicketsRouter);
+
+router.use('/bookmarks', bookmarkRouter);
 
 module.exports = router;
