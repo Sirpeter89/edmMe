@@ -19,10 +19,13 @@ export default function MyTicketsComponent(){
     }, [])
 
     return (
-        <div className='tickets'> Your Scannable Tickets
-            {actualTicketList.map((ticket)=>
-                    <TicketHolderComponent key={ticket.id} ticket={ticket}></TicketHolderComponent>
-                )}
-        </div>
+        <>
+            <div className='title'>Your Scannable Tickets:</div>
+            <div className='tickets'>
+                {actualTicketList.map((ticket)=>
+                        <TicketHolderComponent key={ticket.id} ticket={ticket}></TicketHolderComponent>
+                    )}
+            </div>
+        </>
     )
 }

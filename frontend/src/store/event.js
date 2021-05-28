@@ -29,7 +29,6 @@ export const createEvent = (event)=> async() =>{
         userId,
         }),
     });
-    const data = await response.json();
     return response;
 };
 

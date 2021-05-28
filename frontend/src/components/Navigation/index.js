@@ -9,10 +9,23 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
+  let navClass = 'navButtonContainer'
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <>
+        <div className='userButtons'>
+            <NavLink to="/myEvents" style={{textDecoration: 'none'}}>My Events</NavLink>
+        </div>
+        <div className='userButtons'>
+            <NavLink to="/myTickets" style={{textDecoration: 'none'}}>My Tickets</NavLink>
+        </div>
+        <div className='userButtons'>
+            <NavLink to="/bookmarks" style={{textDecoration: 'none'}}>Bookmarks</NavLink>
+        </div>
+        <ProfileButton user={sessionUser} />
+      </>
     );
+    navClass = 'biggerNavButtonContainer'
   } else {
     sessionLinks = (
       <>
@@ -27,7 +40,7 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <div className='navButtonContainer'>
+    <div className={navClass}>
       <div className='logo'>
         <NavLink exact to="/" className='homeButton' style={{textDecoration: 'none'}}>edmMe</NavLink>
       </div>

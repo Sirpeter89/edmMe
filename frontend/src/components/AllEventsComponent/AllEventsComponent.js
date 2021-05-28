@@ -9,8 +9,8 @@ export default function AllEventsComponent(){
     const dispatch = useDispatch();
     const events = useSelector((state)=>Object.values(state.event))
 
-    useEffect(async()=>{
-        await dispatch(getAllEvents());
+    useEffect(()=>{
+        dispatch(getAllEvents());
     },[dispatch])
 
     return(

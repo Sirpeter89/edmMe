@@ -15,8 +15,8 @@ export default function PurchaseTicketsComponent(){
         setTickets(tickets.tickets);
     }
 
-    useEffect( async ()=>{
-        await getTickets(eventId);
+    useEffect( ()=>{
+        getTickets(eventId);
     },[])
 
     return (

@@ -54,7 +54,7 @@ export default function EventPageComponent(){
     }
 
     const deleteEvent = async () => {
-        await dispatch(eventActions.deletedEvent(event.id));
+        dispatch(eventActions.deletedEvent(event.id));
         history.push('/myEvents');
     }
 

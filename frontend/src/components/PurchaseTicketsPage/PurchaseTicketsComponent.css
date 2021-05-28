@@ -1,4 +1,5 @@
 .allTicketsContainer{
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,5 +7,7 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-image: url('https://images.pexels.com/photos/1179581/pexels-photo-1179581.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     background-size: cover;
-    color: purple
+    color: purple;
+    height: 100%;
+    width: 100%;
 }

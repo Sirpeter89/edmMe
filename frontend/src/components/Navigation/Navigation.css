@@ -1,8 +1,30 @@
 .navButtonContainer{
     display: grid;
     grid-template-columns: 80% 10% 10%;
-    height: 50px;
-    overflow: auto;
+    height: 70px;
+    overflow: none;
+    border-bottom: 1px solid black;
+}
+
+.userButtons{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    color: purple;
+    font-weight: 700;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.biggerNavButtonContainer{
+    display: grid;
+    grid-template-columns: 54% 10% 10% 10% 10% 6%;
+    height: 70px;
+    overflow: none;
+    border-bottom: 1px solid black;
 }
 
 .homeButton{
@@ -15,6 +37,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-top: 10px;
     width: 100px;
     height: 50px
 }
@@ -23,21 +47,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
     color: purple;
     font-weight: 700;
-    height: 50px;
+    height: 98%;
+    border: 1px solid black;
 }
 
 .signupButton{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     color:black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
-    height: 50px;
+    height: 98%;
+    border: 1px solid black;
 }
