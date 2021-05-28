@@ -43,7 +43,7 @@ export default function CreateEventComponent(){
 
     let correctForm;
 
-    if(window.location.href === `http://localhost:3000/editEvent/${id}`){
+    if(window.location.href === `https://edmme.herokuapp.com/editEvent/${id}`){
             correctForm = (
                 <form onSubmit={handleEdit}>
                     <ul>
