@@ -3,9 +3,30 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { Event } = require('../../db/models');
-const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { restoreUser } = require('../../utils/auth');
 
 const router = express.Router();
+
+router.put(
+    '/edit/:id(\\d+)',
+    restoreUser,
+    asyncHandler(async (req, res) => {
+        const id = req.params.id;
+        const { name, eventImg, date, description, userId } = req.body;
+        const event = await Event.findByPk(id);
+        event.update({
+            name,
+            eventImg,
+            date,
+            description,
+            userId,
+        });
+
+        return res.json(
+            event,
+        );
+    }),
+);
 
 router.get(
     '/',
@@ -66,5 +87,18 @@ router.post(
         });
     }),
     );
+
+router.delete(
+    '/:id(\\d+)',
+    asyncHandler(async (req, res) => {
+        const eventId = req.params.id;
+        const deleteEvent = await Event.findByPk(eventId);
+        deleteEvent.destroy()
+
+        return res.json(
+            deleteEvent,
+        );
+    }),
+)
 
 module.exports = router;

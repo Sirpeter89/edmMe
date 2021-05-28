@@ -59,7 +59,7 @@ export default function EventCardComponent({event}){
     }
 
     let bookmarkBut;
-    if(sessionUser && window.location.href !== 'http://localhost:3000/bookmarks'){
+    if(sessionUser && window.location.href !== 'http://localhost:3000/bookmarks' && window.location.href !== 'http://localhost:3000/myEvents'){
         bookmarkBut = (
             <button className='bookmarkButton' onClick={bookmark}>	&#9733;</button>
         )

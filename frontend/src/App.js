@@ -1,7 +1,7 @@
 // frontend/src/App.js
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
@@ -40,7 +40,7 @@ function App() {
           <Route path="/createEvent">
             <CreateEventComponent />
           </Route>
-          <Route path='/myEvents'>
+          <Route exact path='/myEvents'>
             <MyEventsComponent />
           </Route>
           <Route path='/event/:id'>
@@ -60,6 +60,9 @@ function App() {
           </Route>
           <Route path='/bookmarks'>
             <BookmarksPage />
+          </Route>
+          <Route path='/editEvent/:id'>
+            <CreateEventComponent />
           </Route>
         </Switch>
       )}

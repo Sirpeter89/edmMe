@@ -3,9 +3,13 @@ import { useParams } from "react-router";
 import './EventPageComponent.css'
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import { csrfFetch } from '../../store/csrf';
+import * as eventActions from '../../store/event';
+import { useDispatch} from 'react-redux';
 
 export default function EventPageComponent(){
     const [event, setEvent] = useState('');
+    const dispatch = useDispatch();
     const {id} = useParams();
     useEffect( ()=>{
         getSingleEvent(id);
@@ -45,7 +49,24 @@ export default function EventPageComponent(){
         history.push(`/tickets/${event.id}`)
     }
 
+    const editEvent = () => {
+        history.push(`/editEvent/${event.id}`)
+    }
+
+    const deleteEvent = async () => {
+        await dispatch(eventActions.deletedEvent(event.id));
+        history.push('/myEvents');
+    }
+
     const sessionUser = useSelector(state => state.session.user);
+    let editButton = (
+        <>
+        </>
+    )
+    let deleteButton = (
+        <>
+        </>
+    )
     let ticketButton;
     if(sessionUser === undefined){
         ticketButton = (
@@ -66,6 +87,12 @@ export default function EventPageComponent(){
                 <button className='toAddTickets' onClick={handleClick}>&#x2192;</button>
             </>
         )
+        editButton = (
+            <button className='editButton' onClick={editEvent}>Edit Event</button>
+        )
+        deleteButton = (
+            <button className='deleteButton' onClick={deleteEvent}>Delete Event</button>
+        )
     }
 
     return (
@@ -74,12 +101,14 @@ export default function EventPageComponent(){
                 <img className='imageBlur' src={event.eventImg} />
             </div>
             <div className='eventDetails'>
+                {editButton}
                 <img className='mainImage' src={event.eventImg} />
                 <p className='eventName'>{event.name},  ( {month} {date} )</p>
                 <div className='detailsBox'>
                         {event.description}
                 </div>
                 {ticketButton}
+                {deleteButton}
             </div>
         </>
     );

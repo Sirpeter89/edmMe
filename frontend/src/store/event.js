@@ -1,6 +1,7 @@
 import { csrfFetch } from './csrf';
 
 const SET_EVENT = 'session/setEvent';
+const DELETE_EVENT = 'session/deleteEvent';
 
 const setEvent = (event) => {
     return {
@@ -8,6 +9,13 @@ const setEvent = (event) => {
         payload: event,
         };
     };
+
+const deleteEvent = (event) => {
+    return {
+        type: DELETE_EVENT,
+        payload: event,
+    }
+}
 
 export const createEvent = (event)=> async() =>{
     const { name, eventImg, date, description, userId } = event;
@@ -28,15 +36,24 @@ export const createEvent = (event)=> async() =>{
 export const getEvents = () => async (dispatch) => {
     const res = await fetch('/api/event');
     const eventList = await res.json();
-    dispatch(setEvent(eventList.events));
+    await dispatch(setEvent(eventList.events));
     return res;
 }
 
 export const getAllEvents = () => async (dispatch) => {
     const res = await fetch('/api/event/all');
     const eventsList = await res.json();
-    console.log("EVENTS LSIT IS ", eventsList)
-    dispatch(setEvent(eventsList.events));
+    await dispatch(setEvent(eventsList.events));
+    return res;
+}
+
+export const deletedEvent = (eventId) => async (dispatch) => {
+
+    const res = await csrfFetch(`/api/event/${eventId}`,{
+        method: "DELETE",
+    });
+    const deletedEvent = await res.json();
+    await dispatch(deleteEvent(deletedEvent))
     return res;
 }
 
@@ -50,6 +67,10 @@ const eventReducer = (state = initialState, action) => {
             action.payload.forEach((event)=>{
                 newState[event.id] = event
             })
+            return newState;
+        case DELETE_EVENT:
+            newState = Object.assign({}, state);
+            delete newState[action.payload.id];
             return newState;
         default:
             return state;
