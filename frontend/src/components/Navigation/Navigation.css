@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 80% 10% 10%;
     /* height: 70px; */
-    height: 5vh;
+    height: 50px;
     overflow: none;
 }
 
@@ -41,7 +41,7 @@
 .homeButton{
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Montserrat', sans-serif;
-    font-size: 25px;
+    font-size: 1.5vw;
     color:#386abf;
 }
 
