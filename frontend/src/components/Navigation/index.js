@@ -18,6 +18,7 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   let navClass = 'navButtonContainer'
   if (sessionUser) {
+    navClass = 'biggerNavButtonContainer'
     sessionLinks = (
       <>
         <div className='userButtons'>
@@ -32,7 +33,6 @@ function Navigation({ isLoaded }){
         <ProfileButton user={sessionUser} />
       </>
     );
-    navClass = 'biggerNavButtonContainer'
   } else {
     sessionLinks = (
       <>
@@ -49,7 +49,7 @@ function Navigation({ isLoaded }){
   return (
     <div className={navClass}>
       <div className='logo'>
-        <NavLink exact to="/" className='homeButton' style={{textDecoration: 'none'}}>edmMe</NavLink>
+        <NavLink exact to="/" className='homeButton' style={{textDecoration: 'none'}}>edmME</NavLink>
       </div>
       {isLoaded && sessionLinks}
     </div>

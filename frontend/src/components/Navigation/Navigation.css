@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,600&display=swap');
+
 .navButtonContainer{
     display: grid;
     grid-template-columns: 80% 10% 10%;
-    height: 70px;
+    /* height: 70px; */
+    height: 5vh;
     overflow: none;
-    border-bottom: 1px solid black;
 }
 
 .myEvents{
@@ -37,9 +39,10 @@
 }
 
 .homeButton{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 30px;
-    color:black;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color:#386abf;
 }
 
 .logo{
@@ -47,9 +50,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
-    width: 100px;
-    height: 50px
+    width: 8%;
 }
 
 .loginButton{
@@ -62,7 +63,6 @@
     color: purple;
     font-weight: 700;
     height: 98%;
-    border: 1px solid black;
 }
 
 .signupButton{
@@ -74,5 +74,4 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     height: 98%;
-    border: 1px solid black;
 }
