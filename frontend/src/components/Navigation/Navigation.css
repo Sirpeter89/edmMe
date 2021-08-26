@@ -3,7 +3,7 @@
 
 .navButtonContainer{
     display: grid;
-    grid-template-columns: 78% 12% 10%;
+    grid-template-columns: 76% 12% 12%;
     /* height: 70px; */
     height: 50px;
     overflow: none;
@@ -82,11 +82,12 @@
     border: 1px solid black;
     border-radius: 25px;
     font-family: 'Roboto', sans-serif;
-    font-size: .7vw;
-    height: 35px;
-    width: 90px;
+    font-size: .6vw;
+    height: 70%;
+    width: 40%;
     color: black;
     font-weight: bold;
+    background-color: rgb(255, 255, 255);
 }
 
 .splash-buttons{
@@ -94,4 +95,26 @@
     justify-content: space-evenly;
     align-items: center;
     /* border: 1px solid black; */
+}
+
+.drop-down{
+    position: absolute;
+    display: flex;
+    text-align: end;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 15px;
+    border: 1px solid black;
+    height: 4%;
+    width: 1.7%;
+    transform: translateX(130%);
+    z-index: -1;
+}
+
+.drop-down:hover{
+    cursor: pointer;
+}
+
+.front{
+    position: relative;
 }

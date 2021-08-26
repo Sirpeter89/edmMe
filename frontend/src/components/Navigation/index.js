@@ -38,10 +38,13 @@ function Navigation({ isLoaded }){
       <>
         <div className="splash-buttons">
           <NavLink className='all-events-button' to="/" style={{textDecoration: 'none'}}>All Events</NavLink>
-          <NavLink className='all-events-button' to="/signup" style={{textDecoration: 'none'}}>Add Events</NavLink>
+          <NavLink className='all-events-button' to="/signup" style={{textDecoration: 'none', color:'#386abf'}}>Add Events</NavLink>
         </div>
         <div className="splash-buttons">
           <NavLink className='all-events-button' to="/" style={{textDecoration: 'none'}}>Sign Up/Login</NavLink>
+          <div className="drop-down">
+            &#9660;
+          </div>
         </div>
         {/* <div className='loginButton'>
           <NavLink to="/login" style={{textDecoration: 'none'}}>Log In</NavLink>
