@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .navButtonContainer{
     display: grid;
-    grid-template-columns: 80% 10% 10%;
+    grid-template-columns: 78% 12% 10%;
     /* height: 70px; */
     height: 50px;
     overflow: none;
@@ -41,14 +42,12 @@
 .homeButton{
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5vw;
+    font-size: 25px;
     color:#386abf;
 }
 
 .logo{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 8%;
 }
@@ -74,4 +73,25 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     height: 98%;
+}
+
+.all-events-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: .7vw;
+    height: 35px;
+    width: 90px;
+    color: black;
+    font-weight: bold;
+}
+
+.splash-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border: 1px solid black; */
 }
